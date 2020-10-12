@@ -8,12 +8,7 @@ const app = express();
 const whitelist = ['https://i1-kmv.github.io','http://localhost:3000'];
 
 
-app.use(cors({
-    origin: whitelist,
-    methods: "GET,PUT,POST,DELETE, OPTIONS",
-    preflightContinue: true,
-    optionsSuccessStatus: 204
-}));
+app.use(cors());
 
 app.use(function(req, res, next) {
     if(whitelist.indexOf(req.headers.origin) > -1) res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
