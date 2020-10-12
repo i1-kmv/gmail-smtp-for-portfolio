@@ -37,8 +37,8 @@ let transporter = nodemailer.createTransport({
         rejectUnauthorized:false
     },
     auth: {
-        user: SMTP_LOGIN,
-        pass: SMTP_PASSWORD
+        user: "ivan.yar777@gmail.com",
+        pass:'ilove19917773'
     }
 });
 
