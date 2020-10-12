@@ -26,15 +26,15 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-let smtp_login = process.env.SMTP_LOGIN;
-let smtp_password = process.env.SMTP_PASSWORD;
+let SMTP_LOGIN = process.env.SMTP_LOGIN;
+let SMTP_PASSWORD = process.env.SMTP_PASSWORD;
 
 let transporter = nodemailer.createTransport({
     service: "gmail",
 
     auth: {
-        user: smtp_login,
-        pass: smtp_password
+        user: SMTP_LOGIN,
+        pass: SMTP_PASSWORD
     }
 });
 
@@ -59,8 +59,6 @@ app.post('/sendMessage', async function (req, res) {
         console.log(err)
         res.send(err);
     }
-
-
 });
 
 let port = process.env.PORT || 3010;
