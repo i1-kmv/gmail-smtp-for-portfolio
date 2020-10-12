@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const whitelist = ['https://constantin-dot.github.io','http://localhost:3000'];
+const whitelist = ['https://i1-kmv.github.io','http://localhost:3000'];
 
 
 app.use(cors({
