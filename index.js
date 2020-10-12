@@ -31,7 +31,11 @@ let SMTP_PASSWORD = process.env.SMTP_PASSWORD;
 
 let transporter = nodemailer.createTransport({
     service: "gmail",
-
+    secure: false,
+    port: 25,
+    tls: {
+        rejectUnauthorized:false
+    },
     auth: {
         user: SMTP_LOGIN,
         pass: SMTP_PASSWORD
