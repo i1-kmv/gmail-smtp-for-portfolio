@@ -38,7 +38,7 @@ let transporter = nodemailer.createTransport({
       rejectUnauthorized:false
     },
     auth: {
-        user:"ivan.yar777@gmail.com" ,
+        user:"ivanyarovoj91@gmail.com" ,
         pass: 'ilove19917773'
     }
 });
@@ -52,7 +52,7 @@ app.post('/sendMessage', async function (req, res) {
     try {
         await transporter.sendMail({
             from: 'Portfolio Page',
-            to: "ivan.yar777@gmail.com",
+            to: "ivanyarovoj91@gmail.com",
             subject: "New response",
             html: `<b>Message from your portfolio page</b>
                <div>name: ${name}</div>
