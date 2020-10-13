@@ -5,18 +5,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const whitelist = ['https://i1-kmv.github.io','http://localhost:3000'];
+app.use(cors())
 
-
-app.use(cors());
-
-app.use(function(req, res, next) {
-    if(whitelist.indexOf(req.headers.origin) > -1) res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-    res.setHeader('Access-Control-Allow-Headers', 'Authorization, Origin, X-Requested-With, Content-Type, Accept');
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.setHeader("Access-Control-Allow-Credentials", true);
-    next();
-});
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -26,8 +16,13 @@ let smtp_password = process.env.SMTP_PASSWORD;
 
 let transporter = nodemailer.createTransport({
     service: "gmail",
+    secure:false,
+    port:25,
+    tls: {
+      rejectUnauthorized:false
+    },
     auth: {
-        user: smtp_login,
+        user:smtp_login,
         pass: smtp_password
     }
 });
