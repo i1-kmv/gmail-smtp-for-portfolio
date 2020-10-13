@@ -27,8 +27,8 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-let smtp_login = process.env.SMTP_LOGIN || '';
-let smtp_password = process.env.SMTP_PASSWORD || '';
+// let smtp_login = process.env.SMTP_LOGIN || '';
+// let smtp_password = process.env.SMTP_PASSWORD || '';
 
 let transporter = nodemailer.createTransport({
     service: "gmail",
@@ -66,7 +66,7 @@ app.post('/sendMessage', async function (req, res) {
     }
 });
 
-let port = process.env.PORT || 3010;
+let port =  3010;
 
 app.listen(port, function () {
     console.log('Example app listening on port 3010!');
