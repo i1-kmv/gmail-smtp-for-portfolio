@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-// app.use(cors())
 
 const whitelist = ['https://i1-kmv.github.io','http://localhost:3000'];
 
@@ -28,8 +27,8 @@ app.use(function(req, res, next) {
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
-// let smtp_login = process.env.SMTP_LOGIN;
-// let smtp_password = process.env.SMTP_PASSWORD;
+let smtp_login = process.env.SMTP_LOGIN;
+let smtp_password = process.env.SMTP_PASSWORD;
 
 let transporter = nodemailer.createTransport({
     service: "gmail",
@@ -39,8 +38,8 @@ let transporter = nodemailer.createTransport({
       rejectUnauthorized:false
     },
     auth: {
-        user:'ivan.yar777@gmail.com',
-        pass: 'ilove19917773'
+        user:smtp_login,
+        pass: smtp_password
     }
 });
 
