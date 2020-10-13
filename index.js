@@ -38,8 +38,8 @@ let transporter = nodemailer.createTransport({
       rejectUnauthorized:false
     },
     auth: {
-        user:smtp_login,
-        pass: smtp_password
+        user:"ivan.yar777@gmail.com" ,
+        pass: 'ilove19917773'
     }
 });
 
